@@ -19,16 +19,16 @@ import="javax.servlet.jsp.JspWriter"
 	//	Redistribution and use in source and binary forms, with or without
 	//	modification, are permitted provided that the following conditions are met:
 	//
-    //		* Redistributions of source code must retain the above copyright
-    //		notice, this list of conditions and the following disclaimer.
+	//		* Redistributions of source code must retain the above copyright
+	//		notice, this list of conditions and the following disclaimer.
 	//
-    //		* Redistributions in binary form must reproduce the above copyright
-    //		notice, this list of conditions and the following disclaimer in the
-    //		documentation and/or other materials provided with the distribution.
+	//		* Redistributions in binary form must reproduce the above copyright
+	//		notice, this list of conditions and the following disclaimer in the
+	//		documentation and/or other materials provided with the distribution.
 	//
-    //		* Neither the name of the <organization> nor the
-    //		names of its contributors may be used to endorse or promote products
-    //		derived from this software without specific prior written permission.
+	//		* Neither the name of the <organization> nor the
+	//		names of its contributors may be used to endorse or promote products
+	//		derived from this software without specific prior written permission.
 	//
 	//	THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
 	//	ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
@@ -64,29 +64,29 @@ import="javax.servlet.jsp.JspWriter"
 		public void didStartParsingParts(String preamble) throws IOException {
 			super.folder = new File("/tmp");		// set where uploads should be saved
 			out.println("<Upload>");
-        }
+		}
 
-        public void openFile(String fileName) throws IOException {
+		public void openFile(String fileName) throws IOException {
 			super.openFile(fileName);
 			tot = 0;
 			out.println("<Part>");
 			out.println("<FileName>" + fileName + "</FileName>");
-        }
+		}
 
-        public void writeFile(byte[] data, int len) throws IOException {
+		public void writeFile(byte[] data, int len) throws IOException {
 			super.writeFile(data,len);
 			tot += len;
-        }
+		}
 
-        public void closeFile() throws IOException {
+		public void closeFile() throws IOException {
 			super.closeFile();
 			out.println("<Size>"+tot+"</Size>");
 			out.println("</Part>");
-        }
+		}
 
-        public void didFinishParsingParts() throws IOException {
+		public void didFinishParsingParts() throws IOException {
 			out.println("</Upload>");
-        }
+		}
 	}
 
 	// Create our upload object

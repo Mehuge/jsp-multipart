@@ -1,0 +1,1 @@
+Parses multipart form data on the fly, optionally writing file parts to disk.  Supports reading of custom part headers, or handling different types of part data by overriding the standard methods.
